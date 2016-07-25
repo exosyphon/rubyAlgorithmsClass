@@ -9,28 +9,18 @@ def quicksort(a,lo,hi)
 	quicksort(a,p+1,hi)
 end
 
-def partition(a,lo,hi)
-	i=lo
-	j=hi+1
-	while true do
-		i+=1
-		while a[i] < a[lo] do
-			break if i == hi
-			i+=1
-		end 
-
-		j-=1
-		while a[lo] < a[j] do
-			break if j == lo 
-			j-=1
+def partition(a, lo, hi)
+	pivot = lo
+	for index in (lo..hi) do
+		if a[index] < a[hi]
+			swap(a, index, pivot)
+			pivot += 1
 		end
-
-		break if i >= j
-		swap(a,i,j)
 	end
 
-	swap(a,lo,j)
-	j
+	swap(a, hi, pivot)
+
+	pivot
 end
 
 def swap(a,lo,hi)
