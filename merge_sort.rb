@@ -9,13 +9,13 @@ class MergeSort
 	private
 
 	def merge(a, secondary, lo, mid, hi)
-		(lo..hi).to_a.each do |x|
+		(lo..hi).each do |x|
 			secondary[x] = a[x]
 		end
 
 		i = lo 
 		j = mid+1
-		(lo..hi).to_a.each do |x|
+		(lo..hi).each do |x|
 			if i > mid 
 				a[x] = secondary[j]
 				j+=1
