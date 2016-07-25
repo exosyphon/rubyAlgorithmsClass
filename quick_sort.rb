@@ -26,14 +26,14 @@ def partition(a,lo,hi)
 		end
 
 		break if i >= j
-		exch(a,i,j)
+		swap(a,i,j)
 	end
 
-	exch(a,lo,j)
+	swap(a,lo,j)
 	j
 end
 
-def exch(a,lo,hi)
+def swap(a,lo,hi)
 	tmp = a[lo]
 	a[lo] = a[hi]
 	a[hi] = tmp
