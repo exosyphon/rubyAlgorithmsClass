@@ -18,9 +18,9 @@ class MergeSort
 		elsif right.empty?
 			left
 		elsif left.first < right.first
-			[left.first]+merge(left[1..left.count], right)
+			[left.first] + merge(left[1..left.count], right)
 		else
-			[right.first]+merge(left,right[1..right.count])
+			[right.first] + merge(left, right[1..right.count])
 		end
 	end
 end
