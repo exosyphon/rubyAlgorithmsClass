@@ -36,7 +36,7 @@ class MergeSort
 	def sorted(a, secondary, lo, hi)
 		return secondary if hi <= lo
 
-		mid = lo + (hi-lo)/2
+		mid = (lo + hi)/2
 		sorted(a, secondary, lo, mid)
 		sorted(a, secondary, mid+1,hi)
 		merge(a,secondary,lo, mid, hi) 
