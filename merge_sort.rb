@@ -1,46 +1,46 @@
 class MergeSort
-  def sort(array)
-    secondary = array.dup
-    lo = 0
-    hi = array.count-1
-    sorted(array,secondary,lo, hi)
-  end
+	def sort(array)
+		secondary = array.dup
+		lo = 0
+		hi = array.count-1
+		sorted(array,secondary,lo, hi)
+	end
 
-  private
+	private
 
-  def merge(a, secondary, lo, mid, hi)
-    (lo..hi).to_a.each do |x|
-      secondary[x] = a[x]
-    end
-    
-    i = lo 
-    j = mid+1
-    (lo..hi).to_a.each do |x|
-      if i > mid 
-        a[x] = secondary[j]
-        j+=1
-      elsif (j > hi)
-        a[x] = secondary[i]
-        i+=1
-      elsif (secondary[j] < secondary[i])
-        a[x] = secondary[j]
-        j+=1
-      else
-        a[x] = secondary[i]
-        i+=1
-      end
-    end
-    a
-  end
+	def merge(a, secondary, lo, mid, hi)
+		(lo..hi).to_a.each do |x|
+			secondary[x] = a[x]
+		end
 
-  def sorted(a, secondary, lo, hi)
-    return secondary if hi <= lo
+		i = lo 
+		j = mid+1
+		(lo..hi).to_a.each do |x|
+			if i > mid 
+				a[x] = secondary[j]
+				j+=1
+			elsif (j > hi)
+				a[x] = secondary[i]
+				i+=1
+			elsif (secondary[j] < secondary[i])
+				a[x] = secondary[j]
+				j+=1
+			else
+				a[x] = secondary[i]
+				i+=1
+			end
+		end
+		a
+	end
 
-    mid = lo + (hi-lo)/2
-    sorted(a, secondary, lo, mid)
-    sorted(a, secondary, mid+1,hi)
-    merge(a,secondary,lo, mid, hi) 
-  end
+	def sorted(a, secondary, lo, hi)
+		return secondary if hi <= lo
+
+		mid = lo + (hi-lo)/2
+		sorted(a, secondary, lo, mid)
+		sorted(a, secondary, mid+1,hi)
+		merge(a,secondary,lo, mid, hi) 
+	end
 end
 
 p MergeSort.new.sort([])
